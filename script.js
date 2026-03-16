@@ -1,8 +1,19 @@
-document.querySelector("form").addEventListener("submit", function (e) {
-    e.preventDefault();
+const form = document.getElementById("myform");
+const username = document.getElementById("username");
+const email = document.getElementById("email");
+const errroMess = document.getElementById("error-msg")
 
-    let name = document.querySelector("[name=name]").value;
-    let email = document.querySelector("[name=email]").value;
+form.addEventListener('submit', function (e) {
 
-    console.log(name, email);
+    const value = username.value.trim();
+
+    if (value === "" || value.length < 3) {
+        e.preventDefault();
+
+        errroMess.innerText = "name must > 3 characters";
+
+    } else {
+        errroMess.innerText = "";
+        alert("Done");
+    }
 });

@@ -17,3 +17,11 @@ button {
     padding-inline: 20px;
     border-radius: 5px;
 }
+
+#td_delete {
+    color: red;
+}
+
+#td_update {
+    color: green;
+}
