@@ -7,5 +7,5 @@ $conn = new mysqli(
 );
 
 if ($conn->connect_error) {
-    die("Conection fail");
+    die("Connection Failed");
 }
