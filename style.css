@@ -1,27 +1,92 @@
 body {
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: Arial;
 }
 
-form {
-    width: 300px;
+#myform {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
 input {
+    width: 60%;
+    height: 30px;
+}
+
+.container-input {
     width: 100%;
-    padding: 8px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
 }
 
-button {
-    background: blue;
-    color: white;
-    padding-inline: 20px;
-    border-radius: 5px;
+.btn-create {
+    cursor: pointer;
+    background-color: blue;
+    border-radius: 15px;
+    color: azure;
+    padding: 5px 10px;
+    border: none;
 }
 
-#td_delete {
+.mytable {
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+td,
+th {
+    text-align: center;
+    padding: 12px;
+}
+
+th {
+    font-weight: bolder;
+    background-color: darkseagreen;
+    color: black;
+}
+
+th:nth-child(1) {
+    width: 5%;
+}
+
+th:nth-child(2) {
+    width: 15%;
+}
+
+th:nth-child(3) {
+    text-wrap: wrap;
+    width: 25%;
+}
+
+th:nth-child(4) {
+    width: 15%;
+}
+
+td.action-cell {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.action_delete {
     color: red;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
 }
 
-#td_update {
+.action_update {
     color: green;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
 }

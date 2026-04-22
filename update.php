@@ -9,19 +9,13 @@ $safeid = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
 $safename = htmlspecialchars($name, ENT_QUOTES, 'UTF-8');
 $safemail = htmlspecialchars($email, ENT_QUOTES, 'UTF-8');
 
-$conn->query(
-    "UPDATE users 
-SET name='$safename', email='$email' 
-WHERE id=$id"
-);
-
 $stmt = $conn->prepare(
     "UPDATE users
-    SET name='$safename', email='$safemail'
+    SET name=?, email=?
     WHERE id=?"
 );
 
-$stmt->bind_param("i", $id);
+$stmt->bind_param("ssi", $safename, $safemail, $id);
 $stmt->execute();
 
 if ($stmt->affected_rows > 0) {

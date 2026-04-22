@@ -12,43 +12,47 @@
 
 <body>
     <h2>Create User</h2>
-    <br><br>
     <form id="myform" action="/create.php" method="POST">
-        <label for="name">Name</label>
-        <input type="text" name="name" id="username" placeholder="Input your name">
-        <br><br>
-        <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="Inpurt your email">
+        <div class="container-input">
+            <label for="name">Name</label>
+            <input type="text" name="name" id="username" placeholder="Input your name">
+        </div>
 
-        <br><br>
-        <span id="error-msg" style="color: red;"></span>
+        <div class="container-input">
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" placeholder="Inpurt your email">
+        </div>
 
-        <button type="submit">Create</button>
+        <div class="container-input">
+            <button class="btn-create" type="submit">Create</button>
+            <span class="error-msg" style="color: red;"></span>
+        </div>
+
     </form>
 
     <h2>User List</h2>
-
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Action</th>
-        </tr>
-
-        <?php while ($row = $result->fetch_assoc()) { ?>
+    <div class="mytable">
+        <table border="1">
             <tr>
-                <td><?= $row["id"] ?></td>
-                <td><?= $row["name"] ?></td>
-                <td><?= $row["email"] ?></td>
-                <td>
-                    <a id="td_delete" href="delete.php?id=<?= $row["id"] ?>">Delete</a>
-                    <br><br>
-                    <a id="td_update" href="edit.php?id=<?= $row["id"] ?>">Update</a>
-                </td>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
             </tr>
-        <?php } ?>
-    </table>
+
+            <?php while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?= $row["id"] ?></td>
+                    <td><?= $row["name"] ?></td>
+                    <td><?= $row["email"] ?></td>
+                    <td class="action-cell">
+                        <a class="action_delete" href="delete.php?id=<?= $row["id"] ?>">Delete</a>
+                        <a class="action_update" href="edit.php?id=<?= $row["id"] ?>">Update</a>
+                    </td>
+                </tr>
+            <?php } ?>
+        </table>
+    </div>
 
     <script src="./script.js"></script>
 </body>
